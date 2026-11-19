@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leak Guard · Aqua Savers · Delhi Private School, Ajman</title>
+<meta name="description" content="Leak Guard: a low-cost alarm that spots water leaks at the first puddle. An Annual Day project by Team Aqua Savers, Delhi Private School, Ajman, on solving a water issue in the UAE.">
+<link rel="icon" href="faviconV2.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}
+</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#problem">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Leak Guard by Team Aqua Savers, Delhi Private School, Ajman, back to top"><img class="logo" src="faviconV2.webp" alt="" width="32" height="32"><span><b>Leak Guard</b><small>Aqua Savers · DPS Ajman</small></span></a>
+    <nav aria-label="Sections">
+      <a href="#problem">Why it matters</a><a href="#how">How it works</a><a href="#model">Try it in 3D</a><a href="#uses">Where it helps</a><a href="#about">Our team</a>
+    </nav>
+    <span class="state leak" id="state" role="status">Leak detected</span>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <section class="hero" aria-labelledby="title">
+      <figure class="banner">
+        <img src="school_pic.jpg" alt="Our school building in Ajman" width="768" height="268" fetchpriority="high">
+        <figcaption class="school">
+          <img src="faviconV2.webp" alt="Delhi Private School, Ajman logo" width="40" height="40">
+          <p><b>Delhi Private School, Ajman</b><span>Team Aqua Savers · Annual Day project</span></p>
+        </figcaption>
+      </figure>
+      <div>
+        <p class="eyebrow">Theme: solving a water issue in the UAE</p>
+        <h1 id="title">Leak Guard</h1>
+        <p class="lede">A small alarm that spots a water leak at the very first puddle, so it gets fixed before water is wasted for days.</p>
+        <div class="cta">
+          <a class="btn primary" href="#model">Explore it in 3D</a>
+          <a class="btn" href="#problem">Why it matters</a>
+        </div>
+      </div>
+      <figure class="hero-lcd">
+        <div class="lcd-module" id="lcdFig" role="img" aria-label="LCD screen showing !! LEAK ALERT !! and Lvl:420">
+          <span class="hole" style="left:2.25%;top:5%"></span><span class="hole" style="right:2.25%;top:5%"></span>
+          <span class="hole" style="left:2.25%;bottom:5%"></span><span class="hole" style="right:2.25%;bottom:5%"></span>
+          <span class="pins"></span>
+          <div class="bezel"><div class="screen"><canvas id="heroLcd" width="1290" height="328"></canvas></div></div>
+        </div>
+        <figcaption class="readout">
+          <div class="meter">
+            <div class="row"><span>Water sensor</span><b id="a0val">420 · wet</b></div>
+            <div class="track"><div class="fill" id="a0fill" style="width:41%"></div></div>
+          </div>
+          <div class="seg" role="group" aria-label="Floor state">
+            <button type="button" data-leak="0" aria-pressed="false">Dry floor</button><button type="button" data-leak="1" aria-pressed="true">Leak</button>
+          </div>
+        </figcaption>
+      </figure>
+    </section>
+
+    <dl class="specs" aria-label="Leak Guard at a glance">
+      <div><dt>Notices</dt><dd>1.5<small>mm</small></dd><dd class="d">of water on the floor is enough to set it off.</dd></div>
+      <div><dt>Warns with</dt><dd>LCD<small>screen</small></dd><dd class="d">that flashes LEAK ALERT while the floor is wet.</dd></div>
+      <div><dt>Made from</dt><dd>12<small>parts</small></dd><dd class="d">mostly cardboard, a food tray and an Arduino.</dd></div>
+      <div><dt>Runs on</dt><dd>5<small>V USB</small></dd><dd class="d">from a laptop or a phone power bank.</dd></div>
+    </dl>
+
+    <section class="block" id="problem" aria-labelledby="problem-h">
+      <div class="sec-head">
+        <p class="tag">Why it matters</p>
+        <div>
+          <h2 id="problem-h">Every drop counts in the UAE</h2>
+          <p>The UAE is one of the driest places on Earth, yet each of us uses a lot of water every day. Water that leaks away has to be replaced, and making new drinking water here is hard work.</p>
+        </div>
+      </div>
+      <dl class="specs">
+        <div><dt>Rain each year</dt><dd>≈ 100<small>mm</small></dd><dd class="d">falls in a typical year, about a tenth of the world average.</dd></div>
+        <div><dt>Water from the sea</dt><dd>42<small>per cent</small></dd><dd class="d">of the UAE's water is seawater with the salt taken out, which uses a lot of energy.</dd></div>
+        <div><dt>Daily use</dt><dd>≈ 500<small>litres</small></dd><dd class="d">used by each person every day, far above the world average.</dd></div>
+        <div><dt>One dripping tap</dt><dd>11,000<small>litres</small></dd><dd class="d">wasted in a year by just one tap dripping once a second.</dd></div>
+      </dl>
+      <p class="story">Leaks hide under sinks, behind washing machines and around rooftop tanks and water heaters. By the time someone spots a stain or a high bill, the water is gone. <b>Leak Guard watches the floor for you</b> and raises the alarm at the very first puddle.</p>
+      <p class="sources">Sources: <a href="https://www.thenationalnews.com/news/uae/2026/03/29/can-the-uae-harvest-this-weeks-heavy-rains-to-improve-water-security" rel="noopener">The National, 2026</a> (rainfall) · <a href="https://www.thenationalnews.com/opinion/comment/2022/03/22/world-water-day-a-chance-for-the-uae-to-re-think-our-use-of-resources" rel="noopener">The National, 2022</a> (desalination, daily use) · <a href="https://www.epa.gov/watersense/fix-leak-week" rel="noopener">US EPA WaterSense</a> (dripping tap)</p>
+    </section>
+
+    <section class="block" id="how" aria-labelledby="how-h">
+      <div class="sec-head">
+        <p class="tag">How it works</p>
+        <div>
+          <h2 id="how-h">From first drip to alarm</h2>
+          <p>We built it from cardboard, a food container and an Arduino, a tiny computer you can program. Here is what happens when water starts to leak.</p>
+        </div>
+      </div>
+      <ol class="chain">
+        <li><span class="bal">1</span><h3>A leak starts</h3><p>In our model, water poured into a pipe drips out of the end, just like a leaking pipe at home.</p></li>
+        <li><span class="bal">2</span><h3>A puddle forms</h3><p>A shallow food tray stands in for the floor and catches the drips.</p></li>
+        <li><span class="bal">3</span><h3>The sensor gets wet</h3><p>A water sensor hangs just above the floor. Its copper strips touch even a very thin puddle.</p></li>
+        <li><span class="bal">4</span><h3>The Arduino checks</h3><p>This tiny computer reads the sensor again and again. Dry, it reads about <b>12</b>. Wet, about <b>420</b>.</p></li>
+        <li><span class="bal">5</span><h3>The alarm goes off</h3><p>The screen flashes <b>LEAK ALERT</b>. Once the floor is dry it shows <b>Dry</b> and counts how many leaks it has caught.</p></li>
+      </ol>
+    </section>
+
+    <section class="block" id="model" aria-labelledby="model-h">
+      <div class="sec-head">
+        <p class="tag">Try it in 3D</p>
+        <div>
+          <h2 id="model-h">Look inside our model</h2>
+          <p>Turn the model around, tap a part to find out what it does, or switch to X-ray to see the electronics hidden inside the box. Set the floor to Dry and watch the little screen change.</p>
+        </div>
+      </div>
+      <div class="model">
+        <div class="stage">
+          <div class="toolbar">
+            <div class="tgrp"><span>View</span>
+              <button class="chip" type="button" data-view="se" aria-pressed="true">Overview</button><button class="chip" type="button" data-view="sw" aria-pressed="false">Other side</button><button class="chip" type="button" data-view="front" aria-pressed="false">Front</button><button class="chip" type="button" data-view="top" aria-pressed="false">From above</button><button class="chip" type="button" data-view="lcd" aria-pressed="false">Screen</button>
+            </div>
+            <div class="tgrp"><span>Look</span>
+              <button class="chip" type="button" data-mode="real" aria-pressed="true">Normal</button><button class="chip" type="button" data-mode="xray" aria-pressed="false">X-ray</button>
+            </div>
+            <div class="tgrp"><span>Floor</span>
+              <div class="seg" role="group" aria-label="Floor state in the model"><button type="button" data-leak="0" aria-pressed="false">Dry</button><button type="button" data-leak="1" aria-pressed="true">Leak</button></div>
+            </div>
+            <div class="tgrp"><span>Show</span>
+              <button class="chip" type="button" id="balBtn" aria-pressed="true">Numbers</button>
+              <button class="chip icon" type="button" id="zoomOut" aria-label="Zoom out">−</button><button class="chip icon" type="button" id="zoomIn" aria-label="Zoom in">+</button>
+            </div>
+          </div>
+          <div class="viewport" id="vp3d">
+            <div class="vlabel"><b id="v3name">Overview</b> · <span id="v3style">Normal</span></div>
+            <div class="loading" id="vpLoading">Loading the 3D model…</div>
+          </div>
+          <p class="hint" id="selInfo" aria-live="polite">Pick a part in the list or in the model to see what it does.</p>
+          <p class="hint mouse-hint">Drag to turn the model · right-drag to move it · <b>Ctrl</b> or <b>⌘</b> + scroll, or pinch, to zoom</p>
+          <p class="hint touch-hint">Swipe sideways to turn the model · pinch, or tap <b>−</b> <b>+</b>, to zoom · tap a part to find it</p>
+        </div>
+        <div>
+          <div class="parts-head"><h3>What's inside</h3><button class="chip" type="button" id="clearSel" hidden>Show all parts</button></div>
+          <ol class="parts" id="parts"></ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="uses" aria-labelledby="uses-h">
+      <div class="sec-head">
+        <p class="tag">Where it helps</p>
+        <div>
+          <h2 id="uses-h">Where Leak Guard could help</h2>
+          <p>Anywhere water can leak without anyone seeing it.</p>
+        </div>
+      </div>
+      <ul class="uses">
+        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18"/><path d="M5 12v1.5A5.5 5.5 0 0 0 10.5 19h3a5.5 5.5 0 0 0 5.5-5.5V12"/><path d="M12 12V6.5a2.5 2.5 0 0 1 5 0"/></svg><h3>Under the kitchen sink</h3><p>Loose pipe joints often drip for weeks behind closed cupboard doors.</p></li>
+        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="2.5" width="16" height="19" rx="2.5"/><circle cx="12" cy="13.5" r="4.5"/><path d="M7.5 6h2M14 6h2.5"/></svg><h3>Beside the washing machine</h3><p>A split hose can flood the floor while nobody is home.</p></li>
+        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="6.5" ry="2.5"/><path d="M5.5 6v10c0 1.4 2.9 2.5 6.5 2.5s6.5-1.1 6.5-2.5V6"/><path d="M8 18.2v3.3M16 18.2v3.3"/></svg><h3>Rooftop tanks and heaters</h3><p>Overflowing tanks and leaking heaters are out of sight on the roof.</p></li>
+        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="9" rx="2"/><path d="M6 9.5h12"/><path d="M8 16.5V18M12 16.5V20M16 16.5V18"/></svg><h3>Below the AC unit</h3><p>A blocked drain line can drip onto walls and ceilings.</p></li>
+      </ul>
+      <h3 class="next-head">Our ideas for version 2</h3>
+      <ul class="next">
+        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15z"/><path d="M10 21a2 2 0 0 0 4 0"/></svg><b>A buzzer</b><span>so you can hear the alarm from another room.</span></li>
+        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><b>A phone alert</b><span>using a Wi-Fi board, so you know even when you are out.</span></li>
+        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 13h6M15.5 13h6"/><path d="M8.5 10h7v6h-7z"/><path d="M12 10V6M8.5 6h7"/></svg><b>An automatic valve</b><span>that shuts off the water the moment a leak is found.</span></li>
+      </ul>
+    </section>
+
+    <section class="block" id="about" aria-labelledby="about-h">
+      <div class="sec-head">
+        <p class="tag">Our team</p>
+        <div>
+          <img class="crest" src="faviconV2.webp" alt="Delhi Private School, Ajman logo" width="72" height="72">
+          <h2 id="about-h">Team Aqua Savers</h2>
+          <p>We are students of Delhi Private School, Ajman. This year's Annual Day asked us to solve a water issue in the UAE. We chose leaks because they waste water quietly, and a simple, low-cost alarm can catch them early.</p>
+          <p class="thanks">Thank you for visiting our project!</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="makers" aria-labelledby="makers-h">
+      <div class="sec-head">
+        <p class="tag">For builders</p>
+        <div>
+          <h2 id="makers-h">Build your own</h2>
+          <p>Want to make one at home or in class? Here are the full drawing, the wiring and step-by-step instructions.</p>
+        </div>
+      </div>
+      <details class="makers">
+        <summary class="btn"><span class="when-closed">Show the build guide</span><span class="when-open">Hide the build guide</span></summary>
+        <div class="makers-body">
+          <section class="sub" id="drawing" aria-labelledby="drawing-h">
+            <div class="sec-head">
+              <p class="tag">Drawing WLD-001 · Sheet 1 of 1</p>
+              <div>
+                <h3 id="drawing-h">General arrangement drawing</h3>
+                <p>Third-angle projection: the top view sits above the front view, and the right view sits to its right. Dimensions in centimetres, not to scale. Dashed lines are parts hidden inside the control box.</p>
+              </div>
+            </div>
+            <div class="layers" id="layers"><span>Layers</span></div>
+            <p class="hint narrow-only">Swipe a view sideways to see all of it.</p>
+            <div class="sheet">
+              <div class="vp" id="vp-top"><div class="vlabel">[−][<b>Top</b>][2D Wireframe]</div></div>
+              <div class="tbcell">
+                <h4>Notes</h4>
+                <ol>
+                  <li>All dimensions in centimetres. Drawing not to scale (NTS).</li>
+                  <li>Electronics (items 3–6) sit 13 cm or more above the base. Only the copper strips of item 9 may touch water.</li>
+                  <li>Sensor tip sits about 1.5 mm above the tray floor, strips facing down.</li>
+                  <li>Dashed lines are hidden parts inside the control box.</li>
+                  <li>Wiring: sensor + → D7, − → GND, S → A0. LCD on D2–D6, D11, D12.</li>
+                  <li>Wrap cardboard near water (items 1, 10) in clear tape. 5 V USB power only.</li>
+                </ol>
+                <div class="tb">
+                  <div class="w4 big"><small>Project</small><span>Water leak detector (Arduino)</span></div>
+                  <div class="w2"><small>Drawing title</small><span>General arrangement</span></div>
+                  <div><small>Dwg no.</small><span>WLD-001</span></div>
+                  <div><small>Rev</small><span>A</span></div>
+                  <div class="w2"><small>Drawn by</small><span contenteditable="true" spellcheck="false">Team Aqua Savers</span></div>
+                  <div class="w2"><small>School / class</small><span contenteditable="true" spellcheck="false">Delhi Private School, Ajman</span></div>
+                  <div><small>Date</small><span>17/11/2026</span></div>
+                  <div><small>Scale</small><span>NTS</span></div>
+                  <div><small>Units</small><span>cm</span></div>
+                  <div><small>Sheet</small><span>1 of 1</span></div>
+                </div>
+              </div>
+              <div class="vp" id="vp-front"><div class="vlabel">[−][<b>Front</b>][2D Wireframe]</div></div>
+              <div class="vp" id="vp-right"><div class="vlabel">[−][<b>Right</b>][2D Wireframe]</div></div>
+            </div>
+            <p class="status" id="coords">Hover or tap a view to read coordinates in cm</p>
+          </section>
+
+          <section class="sub" id="wiring" aria-labelledby="wiring-h">
+            <div class="sec-head">
+              <p class="tag">Pins D2–D7 · D11 · D12 · A0</p>
+              <div>
+                <h3 id="wiring-h">Wiring</h3>
+                <p>Three jumpers run from the sensor up to the Arduino. The LCD plugs into the breadboard and connects to seven digital pins.</p>
+              </div>
+            </div>
+            <div class="wiring">
+              <div>
+                <div class="board-wrap">
+                  <div class="board" role="img" aria-label="Arduino Uno pin map. LCD on D2, D3, D4, D5, D6, D11 and D12. Sensor plus on D7, minus on GND, signal on A0.">
+                    <span class="usb"></span><span class="jack"></span>
+                    <ul class="hdr top" id="hdrTop"></ul>
+                    <div class="silk">UNO<span>R3</span></div>
+                    <ul class="hdr bot" id="hdrBot"></ul>
+                  </div>
+                </div>
+                <p class="hint narrow-only">Swipe the board sideways to see every pin.</p>
+                <ul class="legend">
+                  <li style="--wire:var(--water)">LCD 16×2</li><li style="--wire:#E53935">Sensor +</li><li style="--wire:#212121">Sensor −</li><li style="--wire:#FFB300">Sensor S</li>
+                </ul>
+              </div>
+              <div>
+                <div class="table-wrap">
+                  <table>
+                    <thead><tr><th>From</th><th>Arduino pin</th><th>Jumper</th></tr></thead>
+                    <tbody>
+                      <tr><td>Sensor +</td><td class="pv">D7</td><td><span class="wire" style="--wire:#E53935">Red</span></td></tr>
+                      <tr><td>Sensor −</td><td class="pv">GND</td><td><span class="wire" style="--wire:#212121">Black</span></td></tr>
+                      <tr><td>Sensor S</td><td class="pv">A0</td><td><span class="wire" style="--wire:#FFB300">Yellow</span></td></tr>
+                      <tr><td>LCD 16×2</td><td class="pv">D2–D6, D11, D12</td><td>Through the breadboard</td></tr>
+                      <tr><td>USB cable</td><td class="pv">USB port</td><td>5 V from a laptop or power bank</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="note"><b>Why is + on D7?</b>Powering the sensor from a digital pin lets the sketch switch it on only while it takes a reading. Less time with current in wet copper means the strips corrode more slowly.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="sub" id="build" aria-labelledby="build-h">
+            <div class="sec-head">
+              <p class="tag">8 steps</p>
+              <div>
+                <h3 id="build-h">Build it</h3>
+                <p>Cardboard, a food container and a handful of parts. Every measurement matches the drawing.</p>
+              </div>
+            </div>
+            <div class="rules">
+              <div><b>Keep electronics high</b>Items 3 to 6 sit 13 cm or more above the base. Only the sensor's copper strips may touch water.</div>
+              <div><b>Seal the cardboard</b>Wrap the cardboard near the water, the base board and the sensor stand, in clear tape.</div>
+              <div><b>Low voltage only</b>Use 5 V USB power from a laptop or power bank, nothing else.</div>
+            </div>
+            <ol class="steps">
+              <li><span class="no">01</span><div><h4>Base and back wall</h4><p>Cut two 40 × 30 cm boards from corrugated cardboard. Glue one upright along the back edge of the other.</p><p class="items">Items 1, 2</p></div></li>
+              <li><span class="no">02</span><div><h4>Control box</h4><p>Make an 18 × 9 × 12 cm box. Cut a 7 × 2.5 cm window in the front, 4.5 cm in from the left and 6 cm above the box floor, and a USB hole in the right side. Fix it to the wall with its floor 13 cm above the base.</p><p class="items">Item 3</p></div></li>
+              <li><span class="no">03</span><div><h4>Electronics</h4><p>Lay the Arduino on the box floor with its USB port facing the side hole. Stand the breadboard upright behind the window and plug in the LCD so the screen lines up with it.</p><p class="items">Items 4, 5, 6</p></div></li>
+              <li><span class="no">04</span><div><h4>Leak pipe</h4><p>Use rolled card, a straw or a PVC tube about 1.6 cm across. Run it 16.6 cm out from the wall at 23.8 cm high, 6.4 cm in from the left, then turn it down to finish 16.4 cm above the base.</p><p class="items">Item 7</p></div></li>
+              <li><span class="no">05</span><div><h4>Tray</h4><p>Set the 18 × 13 × 3.2 cm tray on the base under the pipe outlet, 3 cm in from the left edge and 4 cm back from the front edge.</p><p class="items">Item 8</p></div></li>
+              <li><span class="no">06</span><div><h4>Sensor</h4><p>Glue a 2.6 × 2.2 × 5.4 cm cardboard block into the tray and wrap it in tape. Fix the sensor to it strips-down, with the tip about 1.5 mm above the tray floor.</p><p class="items">Items 9, 10</p></div></li>
+              <li><span class="no">07</span><div><h4>Wiring</h4><p>Chain male–female jumpers, about 40 cm in all, from the sensor up into the box: + to D7, − to GND, S to A0. Connect the LCD to D2–D6, D11 and D12.</p><p class="items">Item 11</p></div></li>
+              <li><span class="no">08</span><div><h4>Power and test</h4><p>Plug the USB cable into a laptop or power bank. Pour a little water down the pipe and watch the screen switch from Dry to LEAK ALERT.</p><p class="items">Item 12</p></div></li>
+            </ol>
+          </section>
+        </div>
+      </details>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b>Leak Guard</b> · by Team Aqua Savers · Delhi Private School, Ajman</span>
+    <span>Annual Day project · Theme: solving a water issue in the UAE</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script type="module" src="js/model3d.js"></script>
+</body>
+</html>
